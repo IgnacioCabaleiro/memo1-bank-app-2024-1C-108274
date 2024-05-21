@@ -6,10 +6,13 @@ import javax.persistence.*;
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cbu;
 
     private Double balance;
+
+    @Column(name = "promo_applied")
+    private Double promoApplied;
 
     public Account(){
     }
@@ -18,6 +21,15 @@ public class Account {
         this.balance = balance;
     }
 
+ 
+    public Double getPromoApplied() {
+        return promoApplied;
+    }
+
+    public void setPromoApplied(Double promoApplied) {
+        this.promoApplied = promoApplied;
+    }
+    
     public Long getCbu() {
         return cbu;
     }
