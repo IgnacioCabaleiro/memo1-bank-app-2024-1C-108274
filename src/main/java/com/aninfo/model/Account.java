@@ -2,34 +2,26 @@ package com.aninfo.model;
 
 import javax.persistence.*;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Account {
 
     @Id
+    @ApiModelProperty(hidden = true) 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cbu;
 
     private Double balance;
 
-    @Column(name = "promo_applied")
-    private Double promoApplied;
-
     public Account(){
+
     }
 
     public Account(Double balance) {
         this.balance = balance;
     }
 
- 
-    public Double getPromoApplied() {
-        return promoApplied;
-    }
-
-    public void setPromoApplied(Double promoApplied) {
-        this.promoApplied = promoApplied;
-    }
-    
     public Long getCbu() {
         return cbu;
     }

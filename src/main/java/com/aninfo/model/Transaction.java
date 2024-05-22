@@ -17,6 +17,10 @@ public class Transaction {
     @JoinColumn(name = "account_cbu")
     private Account account;
 
+    public Transaction(){
+
+    }
+
     public Transaction(TransactionType type, Double amount, Account account) {
         this.type = type;
         this.amount = amount;

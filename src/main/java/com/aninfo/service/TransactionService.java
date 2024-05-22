@@ -33,12 +33,12 @@ public class TransactionService {
         Transaction transaction = transactionRepository.findById(id).orElse(null);
     
         if (transaction.getType() == TransactionType.DEPOSIT) {
-            // Si fue un depósito, retira el monto de la cuenta
+
             Account account = transaction.getAccount();
             account.setBalance(account.getBalance() - transaction.getAmount());
             accountRepository.save(account);
         } else if (transaction.getType() == TransactionType.WITHDRAW) {
-            // Si fue una extracción, deposita el monto en la cuenta
+
             Account account = transaction.getAccount();
             account.setBalance(account.getBalance() + transaction.getAmount());
             accountRepository.save(account);
@@ -47,4 +47,3 @@ public class TransactionService {
     }
 
 }
-
